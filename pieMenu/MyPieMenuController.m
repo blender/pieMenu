@@ -48,6 +48,7 @@
     
     UIColor* color;
     
+    /*
     if(angle_d > 0.0 && angle_d < 90.0) 
         color = [UIColor redColor];
     if(angle_d > 90.0 && angle_d < 180.0)
@@ -56,9 +57,11 @@
         color = [UIColor blueColor];
     if(angle_d > 270.0 && angle_d < 360.0)
         color = [UIColor orangeColor];
-    
+    */
+    color = [UIColor colorWithRed:0.3f green:0.3f blue:0.96f alpha:1.0f];
+             
     [self deseletSlice:_selectedSlice];
-    [self selectSlice:slice withColor:color];
+    [self selectSlice:slice];
     
 }
 

@@ -19,6 +19,8 @@
     int _numSlices;
 }
 
+@property (strong, nonatomic) NSMutableArray* slices;
+
 - (id)initWithFrame:(CGRect)frame andSlices:(int) numSlices;
 - (UIBezierPath *) pathFrom:(CGPoint) start to:(CGPoint) end;
 - (void) highlightSlice:(int) sliceNumber withColor:(UIColor *) color;

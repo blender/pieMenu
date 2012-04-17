@@ -14,6 +14,7 @@
 @synthesize window = _window;
 @synthesize pieController = _pieController;
 @synthesize surfaceComController = _surfaceComController;
+@synthesize satController = _satController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -21,19 +22,25 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     
+    //self.satController = [[SatelliteViewController alloc] init];
     self.pieController = [[MyPieMenuController alloc] initWithSlices:6];
     _pieController.byteValue = 0;
     self.surfaceComController = [MSSCommunicationController sharedController];
     
     _surfaceComController.delegate = _pieController;
-    [_surfaceComController connectToHost:@"129.16.213.195" onPort:4568];
+    [_surfaceComController connectToHost:@"169.254.59.237" onPort:4568];
     
    
     [NSTimer scheduledTimerWithTimeInterval:0.5 target:(_surfaceComController) selector:@selector(getContacsFromCodeine) userInfo:nil repeats:YES]; 
     
+    //[self.satController.view addSubview:self.pieController.view];
+    
     [self.window addSubview:self.pieController.view];
     
     [self.window makeKeyAndVisible];
+    
+    [NSTimer scheduledTimerWithTimeInterval:3 target:self.satController selector:@selector(glowWithDuration:) userInfo:nil repeats:YES];
+    
     return YES;
 }
 

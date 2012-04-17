@@ -10,6 +10,8 @@
 		8A2593EB14F6811800A3D43A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AA24C9B14ED072700D7725C /* Foundation.framework */; };
 		8A2593F114F6811800A3D43A /* MSSCommunicationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A2593F014F6811800A3D43A /* MSSCommunicationController.m */; };
 		8A2593F614F6827500A3D43A /* libMSSCommunicationController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A2593EA14F6811800A3D43A /* libMSSCommunicationController.a */; };
+		8A29C8BC1521D55500BBAA50 /* SatelliteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A29C8BB1521D55500BBAA50 /* SatelliteViewController.m */; };
+		8A4EE9741521F11B00B3FD9E /* satelliteImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A4EE9731521F11B00B3FD9E /* satelliteImage.png */; };
 		8A567AA614F4F8D900BD2E45 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A567AA514F4F8D900BD2E45 /* QuartzCore.framework */; };
 		8A567AAD14F53CA300BD2E45 /* pieMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A567AAC14F53CA300BD2E45 /* pieMenuViewController.m */; };
 		8A59C42F1503A5FD008ED71F /* GCDAsyncUdpSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A59C42D1503A5FD008ED71F /* GCDAsyncUdpSocket.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -45,6 +47,9 @@
 		8A2593EE14F6811800A3D43A /* MSSCommunicationController-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MSSCommunicationController-Prefix.pch"; sourceTree = "<group>"; };
 		8A2593EF14F6811800A3D43A /* MSSCommunicationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSSCommunicationController.h; sourceTree = "<group>"; };
 		8A2593F014F6811800A3D43A /* MSSCommunicationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSSCommunicationController.m; sourceTree = "<group>"; };
+		8A29C8BA1521D55400BBAA50 /* SatelliteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SatelliteViewController.h; sourceTree = "<group>"; };
+		8A29C8BB1521D55500BBAA50 /* SatelliteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SatelliteViewController.m; sourceTree = "<group>"; };
+		8A4EE9731521F11B00B3FD9E /* satelliteImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = satelliteImage.png; sourceTree = "<group>"; };
 		8A567AA514F4F8D900BD2E45 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		8A567AAB14F53CA300BD2E45 /* pieMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pieMenuViewController.h; sourceTree = "<group>"; };
 		8A567AAC14F53CA300BD2E45 /* pieMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pieMenuViewController.m; sourceTree = "<group>"; };
@@ -141,6 +146,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		8A4EE9681521E62400B3FD9E /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				8A4EE9731521F11B00B3FD9E /* satelliteImage.png */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
 		8AA24C8A14ED072600D7725C = {
 			isa = PBXGroup;
 			children = (
@@ -174,8 +187,11 @@
 		8AA24C9F14ED072700D7725C /* pieMenu */ = {
 			isa = PBXGroup;
 			children = (
+				8A4EE9681521E62400B3FD9E /* Assets */,
 				8AA24CA814ED072700D7725C /* AppDelegate.h */,
 				8AA24CA914ED072700D7725C /* AppDelegate.m */,
+				8A29C8BA1521D55400BBAA50 /* SatelliteViewController.h */,
+				8A29C8BB1521D55500BBAA50 /* SatelliteViewController.m */,
 				8AA3C51B14FBC76200229735 /* MyPieMenuController.h */,
 				8AA3C51C14FBC76200229735 /* MyPieMenuController.m */,
 				8A567AAB14F53CA300BD2E45 /* pieMenuViewController.h */,
@@ -291,6 +307,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AA24CA414ED072700D7725C /* InfoPlist.strings in Resources */,
+				8A4EE9741521F11B00B3FD9E /* satelliteImage.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +357,7 @@
 				8ABC211314EE87E900CF5CFB /* pieSliceView.m in Sources */,
 				8A567AAD14F53CA300BD2E45 /* pieMenuViewController.m in Sources */,
 				8AA3C51D14FBC76200229735 /* MyPieMenuController.m in Sources */,
+				8A29C8BC1521D55500BBAA50 /* SatelliteViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

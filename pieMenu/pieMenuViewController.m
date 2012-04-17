@@ -58,16 +58,28 @@
 }
 
 
-/*
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    self.view.center = CGPointMake(screenRect.size.width/2, screenRect.size.height/2); 
 }
-*/
+
 -(void) selectSlice:(int) sliceNumber{
 
-    UIColor* color = [UIColor colorWithRed:1.0f green:0.0f blue:0.0f alpha:1.0f];
+    pieMenuView* v= (pieMenuView *)self.view;
+    NSArray* sliceArray = v.slices;
+    pieSliceView* s = [sliceArray objectAtIndex:sliceNumber];
+    float hue;
+    float sat;
+    float bright;
+    float alpha;
+    
+    [s.color getHue:&hue saturation:&sat brightness:&bright alpha:&alpha];
+    UIColor* color = [UIColor colorWithHue:hue saturation:1.0 brightness:0.7 alpha:alpha];
     [(pieMenuView *)self.view highlightSlice:sliceNumber withColor:color];
     _selectedSlice = sliceNumber;
     

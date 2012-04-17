@@ -12,6 +12,8 @@
 
 @implementation pieMenuView
 
+@synthesize slices = _slices;
+
 - (id)initWithFrame:(CGRect)frame
 {
     
@@ -36,7 +38,10 @@
         _slices = [NSMutableArray arrayWithCapacity:numSlices];
         
         for(int i  = 0; i < numSlices; i++){
-            [_slices addObject:[pieSliceView sliceWithFrame:_sliceRect angle:_degrees]];
+            pieSliceView* slice = [pieSliceView sliceWithFrame:_sliceRect angle:_degrees];
+            slice.tag = i+1;
+            slice.color = [UIColor colorWithHue:_degrees*i/360 saturation:1.0 brightness:0.5 alpha:1.0];
+            [_slices addObject:slice];
             [self addSubview:[_slices objectAtIndex:i]];
             CGAffineTransform toCenter = CGAffineTransformMakeTranslation(_sliceRect.size.width/2, _sliceRect.size.height/2);
             CGAffineTransform rot = CGAffineTransformMakeRotation(degreesToRadians(_degrees*i));
@@ -65,7 +70,17 @@
 
 - (void) dehighlightSlice:(int) sliceNumber{
 
-    [self highlightSlice:sliceNumber withColor:[pieSliceView defaultColor]];
+    if(sliceNumber >= 0 && sliceNumber < _numSlices){
+        float hue;
+        float sat;
+        float bright;
+        float alpha;
+        
+        pieSliceView* slice = [_slices objectAtIndex:sliceNumber];
+        [slice.color getHue:&hue saturation:&sat brightness:&bright alpha:&alpha];
+        UIColor* color = [UIColor colorWithHue:hue saturation:1.0 brightness:0.5 alpha:alpha];
+        [slice changeColor:color];
+    }
 
 }
 

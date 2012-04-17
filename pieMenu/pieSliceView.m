@@ -16,7 +16,7 @@
 
 + (UIColor *) defaultColor {
 
-    return [UIColor yellowColor];
+    return [UIColor colorWithRed:0.05f green:0.35f blue:0.65f alpha:1.0];
 }
 
 + (pieSliceView *) sliceWithFrame:(CGRect) frame angle:(CGFloat) angle
@@ -41,7 +41,7 @@
     if(self = [self  initWithFrame:frame]){
         
         _angle = angle;
-        _lineWidth = 5.0;
+        _lineWidth = 10.0;
         self.color = [pieSliceView defaultColor];
     
     }
@@ -53,10 +53,10 @@
 - (void)drawRect:(CGRect)rect
 {
     [[UIColor blackColor] setStroke];
-    CGContextRef ctx = UIGraphicsGetCurrentContext();
-    CGContextSetFillColorWithColor(ctx, self.color.CGColor);
+    //CGContextRef ctx = UIGraphicsGetCurrentContext();
+    //CGContextSetFillColorWithColor(ctx, .CGColor);
     
-    CGContextFillPath(ctx);
+    //CGContextFillPath(ctx);
     
     UIBezierPath *thePath = [UIBezierPath bezierPath];
     thePath.lineWidth = _lineWidth;
@@ -68,7 +68,11 @@
     [thePath addArcWithCenter:_center radius:rect.size.width startAngle:M_PI endAngle:M_PI+degreesToRadians(_angle)clockwise:YES];
     
     [thePath closePath];
-    //[thePath stroke];
+    
+    [[UIColor blackColor] setStroke];
+    [self.color setFill];
+
+    [thePath stroke];
     [thePath fill];
     
     /*
