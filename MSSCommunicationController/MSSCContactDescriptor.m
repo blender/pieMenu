@@ -2,9 +2,22 @@
 //  ContactDescriptor.m
 //  pieMenu
 //
-//  Created by Tommaso Piazza on 2/24/12.
-//  Copyright (c) 2012 ChalmersTH. All rights reserved.
+//  Copyright (c) 2012 Tommaso Piazza <tommaso.piazza@gmail.com>
 //
+//  This file is part of MSSurfaceCom software library.
+//
+//  MSSurfaceCom software library is free software: you can redistribute it and/or modify
+//  it under the terms of the GNU Lesser General Public License as published by
+//  the Free Software Foundation, either version 3 of the License, or
+//  (at your option) any later version.
+//
+//  MSSurfaceCom software library is distributed in the hope that it will be useful,
+//  but WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//  GNU General Public License for more details.
+//
+//  You should have received a copy of the GNU Lesser General Public License
+//  along with MSSurfaceCom software library.  If not, see <http://www.gnu.org/licenses/>.
 
 #import "MSSCContactDescriptor.h"
 
@@ -16,7 +29,8 @@
 @synthesize orientation = _orientation;
 
 
-+(MSSCContactDescriptor *) descriptorFromData:(NSData *) data{
++(MSSCContactDescriptor *) descriptorFromData:(NSData *) data
+{
 
     const unsigned char* bytes = [data bytes];
     
@@ -38,7 +52,8 @@
     
 }
 
--(NSData *) data {
+-(NSData *) data
+{
 
     NSData* data = nil;
     
@@ -63,7 +78,11 @@
     return data;
 }
 
-+ (MSSCContactDescriptor *) descriptorWithByteValue:(unsigned char) byteValue positionX:(int) posX positionY:(int)posY orientation:(float) angle{
++ (MSSCContactDescriptor *) descriptorWithByteValue:(unsigned char) byteValue 
+                                          positionX:(int) posX 
+                                          positionY:(int)posY 
+                                        orientation:(float) angle
+{
     
     MSSCContactDescriptor* msscd = [[MSSCContactDescriptor alloc] initWithByteValue:byteValue positionX:posX positionY:posY orientation:angle]; 
     
@@ -71,7 +90,8 @@
 }
 
 
--(MSSCContactDescriptor *) initWithByteValue:(unsigned char) byteValue positionX:(int) posX positionY:(int)posY orientation:(float) angle{
+-(MSSCContactDescriptor *) initWithByteValue:(unsigned char) byteValue positionX:(int) posX positionY:(int)posY orientation:(float) angle
+{
 
     self = [super init];
     
@@ -96,7 +116,8 @@
 }
 
 
-+(float) distanceFromDescriptor:(MSSCContactDescriptor*) a toDescriptor:(MSSCContactDescriptor *) b{    
++(float) distanceFromDescriptor:(MSSCContactDescriptor*) a toDescriptor:(MSSCContactDescriptor *) b
+{    
     
     float positionX = a.positionX - b.positionX;
     float positionY = b.positionY - a.positionY;
@@ -107,7 +128,8 @@
 
 }
 
-+(CGPoint) positionOfDescriptor:(MSSCContactDescriptor *) desc relativeToDescriptor:(MSSCContactDescriptor *) origin{
++(CGPoint) positionOfDescriptor:(MSSCContactDescriptor *) desc relativeToDescriptor:(MSSCContactDescriptor *) origin
+{
 
     float positionX = desc.positionX - origin.positionX;
     float positionY = origin.positionY - desc.positionY;
@@ -116,7 +138,8 @@
 
 }
 
-+(float) orientationOfDescriptor:(MSSCContactDescriptor *) desc relativeToDescriptor:(MSSCContactDescriptor *) origin{
++(float) orientationOfDescriptor:(MSSCContactDescriptor *) desc relativeToDescriptor:(MSSCContactDescriptor *) origin
+{
     
     float distance = [MSSCContactDescriptor distanceFromDescriptor:origin toDescriptor:desc];
     
@@ -167,7 +190,8 @@
     
 }
 
-+(float) dotProd:(CGPoint)v1 v2:(CGPoint) v2{
++(float) dotProd:(CGPoint)v1 v2:(CGPoint) v2
+{
     
     return ((v1.x*v2.x)+(v1.y*v2.y));
     

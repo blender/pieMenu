@@ -2,9 +2,22 @@
 //  MSSCommunicationController.m
 //  pieMenu
 //
-//  Created by Tommaso Piazza on 2/23/12.
-//  Copyright (c) 2012 ChalmersTH. All rights reserved.
+//  Copyright (c) 2012 Tommaso Piazza <tommaso.piazza@gmail.com>
 //
+//  This file is part of MSSurfaceCom software library.
+//
+//  MSSurfaceCom software library is free software: you can redistribute it and/or modify
+//  it under the terms of the GNU Lesser General Public License as published by
+//  the Free Software Foundation, either version 3 of the License, or
+//  (at your option) any later version.
+//
+//  MSSurfaceCom software library is distributed in the hope that it will be useful,
+//  but WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//  GNU General Public License for more details.
+//
+//  You should have received a copy of the GNU Lesser General Public License
+//  along with MSSurfaceCom software library.  If not, see <http://www.gnu.org/licenses/>.
 
 #import "MSSCommunicationController.h"
 #import "MSSCContactDescriptor.h"
@@ -29,7 +42,8 @@
     return _sharedObject;
 }
 
--(MSSCommunicationController *) init{
+-(MSSCommunicationController *) init
+{
     
     
     self = [super init];
@@ -43,7 +57,8 @@
     
 }
 
--(void) connectToHost:(NSString *)host onPort:(uint16_t) port{
+-(void) connectToHost:(NSString *)host onPort:(uint16_t) port
+{
     
     NSError* error = nil;
     
@@ -51,13 +66,15 @@
     
 }
 
--(void) sendData:(NSData *) data{
+-(void) sendData:(NSData *) data
+{
     
     
     [udpSocket sendData:data withTimeout:-1 tag:0];
 }
 
--(void) getContacsFromCodeine{
+-(void) getContacsFromCodeine
+{
     
     NSData* data;
     NSError* error = nil;
@@ -69,7 +86,8 @@
     [udpSocket beginReceiving:&error];
 }
 
--(void) getDevicesFromCodeine{
+-(void) getDevicesFromCodeine
+{
     
     NSData* data;
     NSError* error = nil;
@@ -82,7 +100,8 @@
 
 }
 
--(void) setDeviceToCodeine:(DeviceInformation *)thisDeviceInformation{
+-(void) setDeviceToCodeine:(DeviceInformation *)thisDeviceInformation
+{
 
     NSData* data;
     NSError* error = nil;
@@ -99,7 +118,8 @@
 
 }
 
-- (void)udpSocket:(GCDAsyncUdpSocket *)sock didReceiveData:(NSData *)data fromAddress:(NSData *)address withFilterContext:(id)filterContext{
+- (void)udpSocket:(GCDAsyncUdpSocket *)sock didReceiveData:(NSData *)data fromAddress:(NSData *)address withFilterContext:(id)filterContext
+{
     
     CodeineMessage* cM;
     
@@ -127,7 +147,8 @@
     
 }
 
--(void) hasContactData:(PackedContacDescriptors *)pcd {
+-(void) hasContactData:(PackedContacDescriptors *)pcd
+{
 
     NSMutableDictionary* dictionary = [NSMutableDictionary dictionary];
     for (int i = 0; i< pcd.count; i++) {
@@ -147,7 +168,8 @@
 
 }
 
--(void) hasIPData:(PackedDeviceInformations *)pdi {
+-(void) hasIPData:(PackedDeviceInformations *)pdi
+{
 
     NSMutableDictionary* dictionary = [NSMutableDictionary dictionary];
     for (int i = 0; i< pdi.count; i++) {
@@ -173,7 +195,8 @@
 #pragma mark -
 #pragma mark Class Utilities
 
-+ (NSString *) deviceIp{
++ (NSString *) deviceIp
+{
     
     NSString *address = @"error";
     struct ifaddrs *interfaces = NULL;

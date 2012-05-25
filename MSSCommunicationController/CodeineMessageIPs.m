@@ -2,9 +2,22 @@
 //  CodeineMessageIPs.m
 //  pieMenu
 //
-//  Created by Tommaso Piazza on 3/10/12.
-//  Copyright (c) 2012 ChalmersTH. All rights reserved.
+//  Copyright (c) 2012 Tommaso Piazza <tommaso.piazza@gmail.com>
 //
+//  This file is part of MSSurfaceCom software library.
+//
+//  MSSurfaceCom software library is free software: you can redistribute it and/or modify
+//  it under the terms of the GNU Lesser General Public License as published by
+//  the Free Software Foundation, either version 3 of the License, or
+//  (at your option) any later version.
+//
+//  MSSurfaceCom software library is distributed in the hope that it will be useful,
+//  but WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//  GNU General Public License for more details.
+//
+//  You should have received a copy of the GNU Lesser General Public License
+//  along with MSSurfaceCom software library.  If not, see <http://www.gnu.org/licenses/>.
 
 #import "CodeineMessageIPs.h"
 
@@ -12,7 +25,8 @@
 
 @synthesize pdi = _pdi;
 
--(id) initMessageOfTypeGet{
+-(id) initMessageOfTypeGet
+{
     
     self = [super initWithType:kMSGIPs andSubType:kMSGGetIPs];
     
@@ -25,7 +39,8 @@
     
 }
 
--(id) initMessageOfTypeSetWithPDI:(PackedDeviceInformations *) pdi{
+-(id) initMessageOfTypeSetWithPDI:(PackedDeviceInformations *) pdi
+{
     
     
     self = [super initWithType:kMSGIPs andSubType:kMSGSetIPs];
@@ -37,17 +52,20 @@
     return  self;
 }
 
-+(CodeineMessageIPs *) messageOfTypeGet{
++(CodeineMessageIPs *) messageOfTypeGet
+{
     
     return [[CodeineMessageIPs alloc] initMessageOfTypeGet];
 }
 
-+(CodeineMessageIPs *) messageOfTypeSetWithPDI:(PackedDeviceInformations *) pdi{
++(CodeineMessageIPs *) messageOfTypeSetWithPDI:(PackedDeviceInformations *) pdi
+{
     
     return [[CodeineMessageIPs alloc] initMessageOfTypeSetWithPDI:pdi];
 }
 
-+(CodeineMessageIPs *) messageFromData:(NSData *)data{
++(CodeineMessageIPs *) messageFromData:(NSData *)data
+{
     
     CodeineMessageIPs* cmIPs;
     
@@ -70,7 +88,8 @@
     
 }
 
--(NSData *) data{
+-(NSData *) data
+{
     
     NSMutableData* data = [NSMutableData data];
     [data appendData:[super data]];

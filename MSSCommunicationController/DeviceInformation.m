@@ -2,9 +2,22 @@
 //  DeviceInformation.m
 //  pieMenu
 //
-//  Created by Tommaso Piazza on 3/10/12.
-//  Copyright (c) 2012 ChalmersTH. All rights reserved.
+//  Copyright (c) 2012 Tommaso Piazza <tommaso.piazza@gmail.com>
 //
+//  This file is part of MSSurfaceCom software library.
+//
+//  MSSurfaceCom software library is free software: you can redistribute it and/or modify
+//  it under the terms of the GNU Lesser General Public License as published by
+//  the Free Software Foundation, either version 3 of the License, or
+//  (at your option) any later version.
+//
+//  MSSurfaceCom software library is distributed in the hope that it will be useful,
+//  but WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//  GNU General Public License for more details.
+//
+//  You should have received a copy of the GNU Lesser General Public License
+//  along with MSSurfaceCom software library.  If not, see <http://www.gnu.org/licenses/>.
 
 #import "DeviceInformation.h"
 
@@ -14,7 +27,8 @@
 @synthesize ipStrLength = _ipStrLength;
 @synthesize ipAddr = _ipAddr;
 
--(DeviceInformation *) initWithCDByteValue:(unsigned char)contactDescriptorByteValue andIp:(NSString *)ipAddr{
+-(DeviceInformation *) initWithCDByteValue:(unsigned char)contactDescriptorByteValue andIp:(NSString *)ipAddr
+{
 
     self = [super init];
     
@@ -29,13 +43,15 @@
 
 }
 
-+(DeviceInformation *) deviceInfoWithCDByteValue:(unsigned char)contactDescriptorByteValue andIp:(NSString *)ipAddr{
++(DeviceInformation *) deviceInfoWithCDByteValue:(unsigned char)contactDescriptorByteValue andIp:(NSString *)ipAddr
+{
 
     return [[DeviceInformation alloc] initWithCDByteValue:contactDescriptorByteValue andIp:ipAddr];
 
 }
 
-+(DeviceInformation *) deviceInfoFromData:(NSData *)data {
++(DeviceInformation *) deviceInfoFromData:(NSData *)data
+{
 
     char* bytes =(char *) [data bytes];
     char cdByteValue = bytes[0];
@@ -59,7 +75,8 @@
 }
 
 
--(NSData *) data{
+-(NSData *) data
+{
 
     NSData* data = nil;
     unsigned char* bytes = malloc(2+self.ipStrLength*sizeof(char));
